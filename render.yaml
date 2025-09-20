@@ -13,7 +13,7 @@ services:
           name: peer2learn-db
           property: connectionString
       - key: PYTHON_VERSION
-        value: 3.11.4 # runtime.txt faylidagi versiyaga mos kelishi kerak
+        value: 3.11 # runtime.txt faylidagi versiyaga mos kelishi kerak
 
   # Ma'lumotlar bazasi (PostgreSQL)
   - type: pserv
