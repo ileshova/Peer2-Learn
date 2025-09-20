@@ -12,7 +12,6 @@ services:
           fromDatabase:
             name: peer2learn-db
             property: connectionString
-
   databases:
     - name: peer2learn-db
       plan: free
