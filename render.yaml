@@ -1,0 +1,23 @@
+
+services:
+  # Veb-xizmat (Flask ilovasi)
+  - type: web
+    name: peer2learn-flask
+    env: python
+    plan: free # Bepul tarif
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn --bind 0.0.0.0:$PORT wsgi:app"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: peer2learn-db
+          property: connectionString
+      - key: PYTHON_VERSION
+        value: 3.11.4 # runtime.txt faylidagi versiyaga mos kelishi kerak
+
+  # Ma'lumotlar bazasi (PostgreSQL)
+  - type: pserv
+    name: peer2learn-db
+    env: postgres
+    plan: free # Bepul tarif
+    postgresMajorVersion: 14
